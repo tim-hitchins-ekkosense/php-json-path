@@ -86,7 +86,7 @@ $document = $encodedValueFactory->createValue('{"a":{"a":1,"b":2}');
 // Selecting all 'a' properties (indefinite query, values exist):
 $query1 = $queryFactory->createQuery('$..a');
 $result1 = $processor->select($query1, $document);
-var_dump($result1->select()); // array: ['{"a":1,"b":2}', '1']
+var_dump($result1->decode()); // array: ['{"a":1,"b":2}', '1']
 
 // Selecting single 'b' property nested in 'a' property (definite query, value exists):
 $query2 = $queryFactory->createQuery('$.a.b');
